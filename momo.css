@@ -1,0 +1,220 @@
+/* css reset  */
+* {
+    margin: 0;
+    padding: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* CSS variables */
+:root {
+    --navbar-height: 59px;
+}
+
+/* Navigation Bar */
+#navbar {
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+#navbar::before {
+    content: "";
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* Navigation Bar: Logo and Image  */
+#logo {
+    margin: 10px 20px;
+}
+
+#logo img {
+    height: 60px;
+    margin: 1px 6px;
+}
+
+/* list styling */
+#navbar ul {
+    display: flex;
+}
+
+#navbar ul li {
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+#navbar li a {
+    display: block;
+    color: white;
+    padding: 2px 15px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+
+}
+
+#navbar li a:hover {
+    color: black;
+    background-color: white;
+}
+
+/* panda section styling */
+#panda {
+    display: flex;
+    flex-direction: column;
+    padding: 2px 100px;
+    height: 430px;
+    align-items: center;
+    justify-content: center;
+}
+
+#panda::before {
+    content: "";
+    background: url('../Background.jpg')no-repeat center center/cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 500px;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.89;
+}
+
+#panda h1 {
+    color: black;
+    text-align: center;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+    font-weight: bolder;
+}
+
+#panda p {
+    text-align: center;
+    color: black;
+    font-size: 1.2rem;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+    font-weight: bolder;
+}
+
+/* services section */
+#services{
+    margin: 10px 70px;
+    display: flex;
+}
+#services .box{
+    border: 2px solid red;
+    margin: 20px 6px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    background: #f2f2f2;
+}
+#services .box img{
+    height: 120px;
+    margin: auto;
+    display: block;
+}
+/* utility classes  */
+
+.h-primary{
+    font-size: 2.3rem;
+    padding: 4px;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+}
+.h-secondary{
+    font-size: 1.8rem;
+    padding: 7px;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+}
+.btn{
+    padding: 4px 15px;
+    border: 2px solid white;
+    background-color: green;
+    color: white;
+    margin: 10px;
+    border-radius: 17px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.center{
+    text-align: center;
+}
+
+/* clients section */
+#client-section{
+    position: relative;
+}
+#clients{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+.client-item{
+    padding: 50px;
+}
+.client-item p{
+        border: 2px solid black;
+        margin: 10px 6px;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+        margin-bottom: 15px;
+       background: rgb(242, 242, 242);
+}
+#clients img{
+    height: 200px;
+    width: 200px;
+}
+#client-section::before{
+    content: "";
+    position: absolute;
+    background: url('../Background.jpg');
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.4;
+}
+/* contact section */
+#contact{
+    position: relative;
+}
+
+#contact::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background: url('../contact.jpg')no-repeat center center/cover;
+}
+#contact-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+}
+#contact-box input, 
+#contact-box textarea{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+}
+#contact-box form{
+    width: 40%;
+    font-family: "Baloo Bhaijaan 2", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+footer{
+    background-color: black;
+    color: white;
+    padding: 9px 20px;
+}

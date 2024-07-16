@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KARE HOSPITALS</title>
+    <link rel="stylesheet" href="css/momo.css">
+    <link rel="stylesheet" media="screen and (max-width:1170px)" href="css/momo1.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap" rel="stylesheet">
+    <script>
+        function getMedicineInfo(disease) {
+            const medicines = {
+                "fever": {
+                    "Medicine": "Acetaminophen",
+                    "Manufacturer": "Johnson & Johnson",
+                    "Review": "Effective in reducing fever, well-tolerated, minimal side effects."
+                },
+                "cough": {
+                    "Medicine": "Dextromethorphan",
+                    "Manufacturer": "Pfizer",
+                    "Review": "Effective cough suppressant, side effects include dizziness and drowsiness."
+                },
+                "cold": {
+                    "Medicine": "Pseudoephedrine",
+                    "Manufacturer": "Pfizer",
+                    "Review": "Effective decongestant, side effects include insomnia and increased blood pressure."
+                },
+                "allergies": {
+                    "Medicine": "Loratadine",
+                    "Manufacturer": "Bayer",
+                    "Review": "Effective antihistamine, minimal side effects, less sedating than older antihistamines."
+                },
+                "headache": {
+                    "Medicine": "Ibuprofen",
+                    "Manufacturer": "Pfizer",
+                    "Review": "Effective pain reliever, side effects include GI upset and increased cardiovascular risk."
+                },
+                "constipation": {
+                    "Medicine": "Polyethylene glycol",
+                    "Manufacturer": "Bayer",
+                    "Review": "Effective laxative, side effects include bloating and cramping."
+                },
+                "heartburn": {
+                    "Medicine": "Ranitidine",
+                    "Manufacturer": "Sanofi",
+                    "Review": "Effective in reducing stomach acid, well-reviewed, long-term use concerns."
+                },
+                "muscle Pain": {
+                    "Medicine": "Diclofenac gel",
+                    "Manufacturer": "Novartis",
+                    "Review": "Effective topical pain relief, minimal side effects, can cause skin irritation."
+                },
+                "fatigue": {
+                    "Medicine": "B Vitamins",
+                    "Manufacturer": "Various",
+                    "Review": "Effective in boosting energy, well-tolerated, side effects are rare."
+                },
+                "insomnia": {
+                    "Medicine": "Melatonin",
+                    "Manufacturer": "Various",
+                    "Review": "Effective in regulating sleep, minimal side effects, can cause drowsiness."
+                },
+                "minor cuts": {
+                    "Medicine": "Neomycin/Polymyxin B/Bacitracin ointment",
+                    "Manufacturer": "Johnson & Johnson",
+                    "Review": "Effective antibiotic ointment, side effects include skin irritation."
+                },
+                "dry skin": {
+                    "Medicine": "Moisturizers (e.g., Cetaphil)",
+                    "Manufacturer": "Galderma",
+                    "Review": "Effective in hydrating skin, minimal side effects, well-reviewed by users."
+                },
+                "sunburn": {
+                    "Medicine": "Aloe Vera gel",
+                    "Manufacturer": "Various",
+                    "Review": "Provides cooling relief, minimal side effects, well-tolerated."
+                },
+                "itchy skin": {
+                    "Medicine": "Hydrocortisone cream",
+                    "Manufacturer": "GlaxoSmithKline",
+                    "Review": "Effective in reducing itching, minimal side effects, can cause skin thinning with prolonged use."
+                },
+                "athlete's foot": {
+                    "Medicine": "Terbinafine",
+                    "Manufacturer": "Novartis",
+                    "Review": "Effective antifungal, side effects include skin irritation."
+                },
+                "cold sores": {
+                    "Medicine": "Acyclovir cream",
+                    "Manufacturer": "GlaxoSmithKline",
+                    "Review": "Effective antiviral, reduces healing time, minimal side effects."
+                },
+                "toothache": {
+                    "Medicine": "Benzocaine gel",
+                    "Manufacturer": "Reckitt Benckiser",
+                    "Review": "Provides local pain relief, minimal side effects, can cause numbness."
+                },
+                "earache": {
+                    "Medicine": "Acetaminophen",
+                    "Manufacturer": "Johnson & Johnson",
+                    "Review": "Effective in reducing pain, well-tolerated, minimal side effects."
+                },
+                "motion sickness": {
+                    "Medicine": "Dimenhydrinate",
+                    "Manufacturer": "Pfizer",
+                    "Review": "Effective in preventing motion sickness, side effects include drowsiness and dry mouth."
+                },
+                " menstrual cramps": {
+                    "Medicine": "Naproxen",
+                    "Manufacturer": "Bayer",
+                    "Review": "Effective pain reliever, side effects include GI upset and increased cardiovascular risk."
+                },
+                "seasonal allergies": {
+                    "Medicine": "Fluticasone nasal spray",
+                    "Manufacturer": "GlaxoSmithKline",
+                    "Review": "Effective in reducing nasal congestion, side effects include nasal irritation and headache."
+                },
+                "dandruff": {
+                    "Medicine": "Ketoconazole shampoo",
+                    "Manufacturer": "Johnson & Johnson",
+                    "Review": "Effective in reducing dandruff, minimal side effects, well-tolerated."
+                },
+                "dry eyes": {
+                    "Medicine": "Artificial Tears",
+                    "Manufacturer": "Refresh",
+                    "Review": "Provides moisture, minimal side effects, well-reviewed by users."
+                },
+                "hiccups": {
+                    "Medicine": "Chlorpromazine",
+                    "Manufacturer": "GlaxoSmithKline",
+                    "Review": "Effective in reducing hiccups, side effects include drowsiness and dry mouth."
+                },
+                "nosebleeds": {
+                    "Medicine": "Oxymetazoline",
+                    "Manufacturer": "Bayer",
+                    "Review": "Effective in reducing nasal bleeding, side effects include nasal irritation and rebound congestion."
+                },
+                "snoring": {
+                    "Medicine": "Nasal Strips",
+                    "Manufacturer": "Breathe Right",
+                    "Review": "Effective in reducing snoring, minimal side effects, well-reviewed by users."
+                },
+                "ringworm": {
+                    "Medicine": "Clotrimazole",
+                    "Manufacturer": "Bayer",
+                    "Review": "Effective antifungal, side effects include skin irritation."
+                },
+                "nausea": {
+                    "Medicine": "Ginger",
+                    "Manufacturer": "Various",
+                    "Review": "Natural remedy, effective in reducing nausea, minimal side effects, well-tolerated."
+                },
+                "acne": {
+                    "Medicine": "Benzoyl Peroxide",
+                    "Manufacturer": "Neutrogena",
+                    "Review": "Effective in reducing acne, side effects include dryness and irritation."
+                },
+                "muscle cramps": {
+                    "Medicine": "Magnesium",
+                    "Manufacturer": "Various",
+                    "Review": "Effective in reducing cramps, minimal side effects, well-tolerated."
+                },
+                "eczema": {
+                    "Medicine": "Moisturizers (e.g., Eucerin)",
+                    "Manufacturer": "Beiersdorf",
+                    "Review": "Effective in hydrating skin, minimal side effects, well-reviewed by users."
+                },
+                "burns": {
+                    "Medicine": "Silver Sulfadiazine",
+                    "Manufacturer": "Pfizer",
+                    "Review": "Effective in preventing infection, side effects include skin discoloration."
+                },
+                "hangover": {
+                    "Medicine": "Rehydration Salts",
+                    "Manufacturer": "Various",
+                    "Review": "Effective in replenishing electrolytes, minimal side effects, well-tolerated."
+                },
+                "gas": {
+                    "Medicine": "Simethicone",
+                    "Manufacturer": "Johnson & Johnson",
+                    "Review": "Effective in reducing gas, minimal side effects, well-tolerated."
+                },
+                "hives": {
+                    "Medicine": "Diphenhydramine",
+                    "Manufacturer": "Pfizer",
+                    "Review": "Effective antihistamine, side effects include drowsiness and dry mouth."
+                },
+                "hypertension": {
+                    "Medicine": "Lisinopril",
+                    "Manufacturer": "Merck & Co.",
+                    "Review": "Effective in controlling blood pressure, common side effects include cough and dizziness."
+                },
+                "asthma": {
+                    "Medicine": "Albuterol",
+                    "Manufacturer": "GlaxoSmithKline",
+                    "Review": "Effective for quick relief of asthma symptoms, well-reviewed by patients."
+                },
+                "depression": {
+                    "Medicine": "Sertraline",
+                    "Manufacturer": "Pfizer",
+                    "Review": "Commonly prescribed antidepressant, effective but may cause nausea and sleep issues."
+                },
+                "anxiety": {
+                    "Medicine": "Alprazolam",
+                    "Manufacturer": "Pfizer",
+                    "Review": "Effective for short-term anxiety relief, risk of dependence with long-term use."
+                },
+                "bacterial infections": {
+                    "Medicine": "Amoxicillin",
+                    "Manufacturer": "GlaxoSmithKline",
+                    "Review": "Broad-spectrum antibiotic, generally well-tolerated, some may experience GI upset."
+                },
+                "migraine": {
+                    "Medicine": "Sumatriptan",
+                    "Manufacturer": "GlaxoSmithKline",
+                    "Review": "Effective for acute migraine relief, side effects include dizziness and fatigue."
+                },
+                "psoriasis": {
+                    "Medicine": "Adalimumab",
+                    "Manufacturer": "AbbVie",
+                    "Review": "Effective in reducing symptoms, injection site reactions and infections are common."
+                },
+                "hiv/aids": {
+                    "Medicine": "Emtricitabine/tenofovir",
+                    "Manufacturer": "Gilead Sciences",
+                    "Review": "Effective in reducing viral load, side effects include nausea and kidney issues."
+                },
+                "parkinson's disease": {
+                    "Medicine": "Levodopa",
+                    "Manufacturer": "Merck Sharp & Dohme",
+                    "Review": "Effective in controlling symptoms, side effects include dyskinesia and nausea."
+                },
+                "chronic pain": {
+                    "Medicine": "Oxycodone",
+                    "Manufacturer": "Purdue Pharma",
+                    "Review": "Effective for pain relief, high risk of addiction and constipation."
+                },
+                "Gout": {
+                    "Medicine": "Allopurinol",
+                    "Manufacturer": "Zydus Pharmaceuticals",
+                    "Review": "Effective in reducing uric acid levels, side effects include rash and GI upset."
+                },
+                "hepatitis c": {
+                    "Medicine": "Sofosbuvir",
+                    "Manufacturer": "Gilead Sciences",
+                    "Review": "High cure rate, side effects include fatigue and headache."
+                },
+                "tuberculosis": {
+                    "Medicine": "Isoniazid",
+                    "Manufacturer": "Sanofi",
+                    "Review": "Effective in TB treatment, side effects include liver toxicity and neuropathy."
+                },
+                "bipolar disorder": {
+                    "Medicine": "Lithium",
+                    "Manufacturer": "Johnson & Johnson",
+                    "Review": "Effective mood stabilizer, side effects include tremor and increased thirst."
+                },
+                "malaria": {
+                    "Medicine": "Artemether/lumefantrine",
+                    "Manufacturer": "Novartis",
+                    "Review": "Effective antimalarial combination, side effects include headache and nausea."
+                },
+                "Chronic Kidney Disease": {
+                    "Medicine": "Erythropoietin",
+                    "Manufacturer": "Amgen",
+                    "Review": "Stimulates red blood cell production, side effects include hypertension and thrombosis."
+                },
+                "breast cancer": {
+                    "Medicine": "Tamoxifen",
+                    "Manufacturer": "AstraZeneca",
+                    "Review": "Effective in ER-positive breast cancer, side effects include hot flashes and thromboembolism."
+                },
+                "alzheimer's disease": {
+                    "Medicine": "Donepezil",
+                    "Manufacturer": "Eisai",
+                    "Review": "Improves cognition in early stages, side effects include nausea and diarrhea."
+                }
+        }
+
+                const lowerCaseDisease = disease.toLowerCase();
+                return medicines[lowerCaseDisease] || null;
+            }
+
+            function handleSubmit(event) {
+                event.preventDefault();
+                const disease = document.getElementById("message").value.trim();
+                const info = getMedicineInfo(disease);
+
+                if (info) {
+                    alert(`Disease: ${disease}\nMedicine: ${info.Medicine}\nManufacturer: ${info.Manufacturer}\nReview: ${info.Review}`);
+                } else {
+                    alert(`No information available for the disease: ${disease}`);
+                }
+            }
+
+            window.onload = function () {
+                const username = sessionStorage.getItem("username");
+                const phone = sessionStorage.getItem("phone");
+
+                if (!username || !phone) {
+                    window.location.href = "registration.html";
+                }
+            };
+
+    </script>
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="people.png" alt="Kare Hospitals">
+        </div>
+        <ul>
+            <li class="item"><a href="#navbar">Home</a></li>
+            <li class="item"><a href="#services-container">Our Services</a></li>
+            <li class="item"><a href="#client-section">Our Specialities</a></li>
+            <li class="item"><a href="#contact">Contact us</a></li>
+        </ul>
+    </nav>
+    <section id="panda">
+        <h1 class="h-primary">Welcome to KARE Hospitals</h1>
+        <p>KARE Hospital encompasses a broad range of medical services provided by multidisciplinary teams, aimed at
+            diagnosing, treating, and managing various health conditions to promote patient recovery and well-being.</p>
+        <button class="btn">Apply now</button>
+    </section>
+
+    <section id="services-container">
+        <h1 class="h-primary center">Our Services</h1>
+        <div id="services">
+            <div class="box">
+                <img src="Telemedicine.jpg" alt="Dp">
+                <h2 class="h-secondary center">Contact through online</h2>
+                <p class="center">Telemedicine enables healthcare providers to deliver medical services and
+                    consultations remotely, using technology to connect with patients and follow-up care, often
+                    improving access and convenience for those in underserved or remote areas.</p>
+            </div>
+            <div class="box">
+                <img src="Electronic health records.png" alt="DP">
+                <h2 class="h-secondary center">Electronic Health Records</h2>
+                <p class="center">Electronic health records (EHRs) streamline the documentation, storage, and retrieval
+                    of patient information, enhancing the accuracy and efficiency of healthcare delivery while
+                    facilitating better coordination among medical professionals.</p>
+            </div>
+            <div class="box">
+                <img src="Tablets.jpg" alt="DP">
+                <h2 class="h-secondary center">Medicines for diseases</h2>
+                <p class="center">Medicine for different diseases is specifically formulated to target and manage the
+                    unique mechanisms and symptoms of various conditions, ranging from antibiotics for bacterial
+                    infections to chemotherapeutic agents for cancer treatment.</p>
+            </div>
+        </div>
+    </section>
+    <section id="client-section">
+        <h1 class="h-primary center">Our Specialities</h1>
+        <div id="clients">
+            <div class="client-item">
+                <img src="small baby.jpg" alt="Our Clients">
+                <h2>Baby Treatment</h2>
+                <p>We ensure a safe and clean environment, and offering emotional support through love and attention to
+                    promote healthy development, well-being.</p>
+            </div>
+            <div class="client-item">
+                <img src="women.jpg" alt="Our Clients">
+                <h2>Treatment for women</h2>
+                <p>We address women for unique health needs through personalized medical care, and access to specialized
+                    services such as obstetrics and gynecology.</p>
+            </div>
+            <div class="client-item">
+                <img src="person.jpg" alt="Our Clients">
+                <h2>Person to person care</h2>
+                <p>We emphasize individual attention, empathy, and direct interaction between healthcare providers and
+                    patients to ensure personalized treatment.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <h1 class="h-primary center">Get Medicine for your disease</h1>
+        <div id="contact-box">
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" placeholder="Enter your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Age: </label>
+                    <input type="number" id="Age" placeholder="Enter your Age" required>
+                </div>
+                <!-- <div class="form-group">
+                    <label for="Phone">Phone number: </label>
+                    <input type="number" name="phone" id="phone" placeholder="Enter your number">
+                </div> -->
+                <div class="form-group">
+                    <label for="message">Name Your Disease: </label>
+                    <textarea name="message" id="message" rows="10" cols="30"></textarea>
+                </div>
+                <button class="btn" type="submit">Get Medicine</button>
+                <button class="btn" type="button" onclick="this.form.reset()">Cancel</button>
+                <!-- <button class="btn" type="reset">Reset Details</button> -->
+            </form>
+        </div>
+    </section>
+    <footer>
+        <div class="center">
+            copyright &copy; My KARE.com. All rights reserved!
+        </div>
+    </footer>
+</body>
+
+</html>
